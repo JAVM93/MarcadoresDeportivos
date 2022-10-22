@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const eventosCtrl = require('../controllers/eventosCtrl')
-
+const auth = require('../security/auth')
 
 router.post('/',     eventosCtrl.eventoGuarda  );
 router.get('/',   eventosCtrl.eventoListar);

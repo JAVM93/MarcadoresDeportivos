@@ -4,6 +4,7 @@ const c = require('colors')
 const db = require('./config/db');
 const cors = require('cors')
 const puerto = 3004
+const jwt = require('jsonwebtoken')
  //const equipos = require('./controllers/equiposCtrl')
 
 // console.log("Listado equipos".bgBlue)

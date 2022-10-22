@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const equiposCtrl = require('../controllers/equiposCtrl')
 const {check } = require('express-validator')
-
+const auth = require('../security/auth')
 const multer = require('multer')
 //const upload =  multer({dest : 'uploads/' })
 const upload =  multer({dest : 'public/images/' })
@@ -19,7 +19,7 @@ router.post('/',
    equiposCtrl.equipoGuarda
   )
 
-router.put('/imagen/:id',upload.single('imagen'), async(req,res)=>{
+/* router.put('/imagen/:id',upload.single('imagen'), async(req,res)=>{
    const imagen = req.file
    console.log("recibiendo imagen")
    console.log(imagen.mimetype)
@@ -28,6 +28,8 @@ router.put('/imagen/:id',upload.single('imagen'), async(req,res)=>{
    fs.rename('./public/images/' + imagen.filename, './public/images/' + id + ".jpg", ()=>{  console.log("cambio realizado")}) 
    res.status(200).json({"msj": "imagen Guardada"})
    }
-   )
+   ) */
+router.put('/',       equiposCtrl.equipoActualizar)   
+router.delete('/:id', equiposCtrl.equipoEliminar)   
 
 module.exports = router

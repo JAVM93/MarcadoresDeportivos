@@ -59,7 +59,7 @@ const equipoActualizar  = async (req,res) =>{
                 { $set: equipo },
                 { new: true }
             )
-            console.log("cat actualizada")
+            console.log("Equipo actualizado")
             //res.status(200).send("equipo ")
             res.status(200).json({ msj: "equipo Actualizado con exito" })
         }

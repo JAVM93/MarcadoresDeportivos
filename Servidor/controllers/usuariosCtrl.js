@@ -1,11 +1,13 @@
 const userModel = require("../models/usuarioScheme")
+const bcryptjs = require('bcryptjs')
 
 const userSave = async (req, res) => {
     console.log("usuario Guardando")
     console.log(req.body)
     try{
         const usuario = new userModel(req.body)
-        usuario.save()
+        usuario.contrasena = await bcryptjs.hash(usuario.contrasena,10)
+        await usuario.save()
         res.status(200).json({"msj": "Usuario Guardado"})
 
     }catch(error){

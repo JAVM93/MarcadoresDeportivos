@@ -1,0 +1,12 @@
+name: Servidor
+packages:
+  - path: Views\css
+  - path: config
+  - path: controllers
+  - path: models
+  - path: routes
+  - path: Views
+test_recording:
+  test_commands:
+    - command: npx @appland/appmap-agent-js --recorder=process -- npm run test
+      env: {}

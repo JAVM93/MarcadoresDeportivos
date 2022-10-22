@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const categoriasCtrl = require('../controllers/categoriasCtrl')
-
+const auth = require('../security/auth')
 function print(){
     console.log("categoria")
 }
@@ -14,8 +14,3 @@ router.delete('/:id', categoriasCtrl.categoriaEliminar)
 module.exports = router
 
 
-// Equipos{
-
-//   Get,post, put, delete, get/:id
-//   }
-  
